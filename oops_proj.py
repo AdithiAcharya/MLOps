@@ -14,9 +14,9 @@ class chatbot:
         4.Press 4 to message a friend
         5.Press any other key to exit""")
         if user_input == "1":
-            pass
+            self.signup()
         elif user_input == "2":
-            pass
+            self.signin()
         elif user_input == "3":
             pass
         elif user_input == "4":
@@ -24,5 +24,30 @@ class chatbot:
         else:
             exit()
 
+    #creating a method that will be passed inside the menu method
+    def signup(self):
+        email=input("Enter your email: ")
+        pwd =input("Setup your password: ")
+        self.username=email
+        self.password=pwd
+        print("You have successfully signed up!")
+        print("\n")#printing a new line for better readability
+        self.menu()
+
+    def signin(self):
+        if self.username=='' and self.password=='':
+            print("Please signup first by pressinf 1 in the main menu")
+        else:
+            uname=input("Enter your email/username: ")
+            pwd=input("Enter your password: ")
+            if self.username==uname and self.password==pwd:
+                print("You have successfully signed in!")
+                self.logged_in=True
+            else:
+                print("Please input correct credentials...")
+        print("\n")
+        self.menu()
+
+#creating an instance of the chatbot class  
 obj=chatbot()
 
