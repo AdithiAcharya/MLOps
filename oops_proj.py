@@ -12,15 +12,17 @@ class chatbot:
         2.Press 2  to signin
         3.Press 3 to write a post
         4.Press 4 to message a friend
-        5.Press any other key to exit""")
+        5.Press any other key to exit
+                         
+        -> """)
         if user_input == "1":
             self.signup()
         elif user_input == "2":
             self.signin()
         elif user_input == "3":
-            pass
+            self.write_post()
         elif user_input == "4":
-            pass
+            self.send_message()
         else:
             exit()
 
@@ -48,6 +50,25 @@ class chatbot:
         print("\n")
         self.menu()
 
+    def write_post(self):
+        if self.logged_in==True:
+            txt=input("Enter your message here:")
+            print(f"Followingcontent has been posted->{txt}")
+        else:
+            print("Please sign in first to write a post")
+        print("\n")
+        self.menu()
+
+    def send_message(self):
+        if self.logged_in==True:
+            txt=input("Enter your message here->")
+            frnd=input("Whom to send to msg? ->")
+            print(f"Your message has been sent to {frnd}")
+        else:
+            print("Please sign in first to send a message")
+        print("\n") 
+        self.menu()
+
 #creating an instance of the chatbot class  
-obj=chatbot()
+#user1=chatbook()
 
